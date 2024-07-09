@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button-div {
+            margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            width: 299.02px;
+            height: 50px;
+        }
+
+
+        .login-container{
+            background-color: white ;
+            display: grid;
+            grid-template-rows: auto auto auto auto;
+            grid-gap: 20px;
+            min-height: 100vh;
+            padding: 20px;
+            align-items: start;
+        }
+
+        .text-boxes{
+            width: 299.02px;
+            padding: 8px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: white;
+            
+        }
+
+        .gender_selector{
+            width: 299.02px;
+            padding: 8px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: gray;
+        }
+
+        .labels{
+            font-weight: 500;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+         <h2 class="button-div">Cadastros</h2>
+    <form action="/cadastro.html" method="POST">
+        <label for="nome" class="labels">Nome:</label><br>
+        <input placeholder="Nome" class="text-boxes" type="text" id="nome" name="nome" required><br><br>
+        
+        <label for="cpf" class="labels">CPF:</label><br>
+        <input placeholder="CPF" class="text-boxes" type="text" id="cpf" name="cpf" required><br><br>
+        
+        <label for="idade" class="labels">Idade:</label><br>
+        <input placeholder="Idade" class="text-boxes" type="number" id="idade" name="idade"  required><br><br>
+        
+        <label for="sexo" class="labels">Sexo:</label><br>
+        <select class="gender_selector" id="sexo" name="sexo"  required>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+        </select><br><br>
+        
+        <label for="fuma" class="labels">Fumante</label><br>
+        <input type="radio" id="fuma_sim" name="fuma" value="Sim" required> <label for="fuma_sim">Sim</label>
+        <input type="radio" id="fuma_nao" name="fuma" value="Não" required> <label for="fuma_nao">Não</label><br><br>
+
+        <label for="alcool" class="labels">Etilista (faz uso de álcool)</label><br>
+        <input type="radio" id="alcool_sim" name="alcool" value="Sim" required> <label for="alcool_sim">Sim</label>
+        <input type="radio" id="alcool_nao" name="alcool" value="Não" required> <label for="alcool_nao">Não</label><br><br>
+        
+        <form action="/templates/patients.html" method="POST">
+            <div class="button-div">
+                <input type="submit" value="Cadastrar">
+            </div>
+            
+        </form>
+        
+    </form>
+    </div>
+   
+</body>
+</html>

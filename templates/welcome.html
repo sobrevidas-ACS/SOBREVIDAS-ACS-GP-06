@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" type="text/css" href="/style/welcome-css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Poppins';
+        }
+
+        .container{
+            display: flex;
+            border: none;
+            height: 896px;
+            width: 414px;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .box{ 
+            font-size: 3em;
+            text-align: center;
+        }
+        #box1{
+            align-self: flex-start;
+        }
+        #box2{
+            align-self: center;
+        }
+        #box3{
+
+            align-self: center;
+        }
+        #box4{
+            background-color: rgb(0, 229, 255);
+            align-self: center;
+        }
+
+        .top-header{
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header{
+            margin-top: 30px;
+            display: flex;
+            flex-direction:row ;
+            justify-content: space-between;
+            width: 349px;
+            
+        }
+
+        .header-max{
+            display: flex;
+            flex-direction: column;
+
+            align-items: start;
+        }
+
+        .left-side{
+            margin-left: 10px;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .round-profile-picture{
+            background-color: #D3EEFE;
+            border-radius: 150px;
+            display: flex;
+            padding: 0px 27px;
+
+        }
+
+        .user-text{
+            margin-left: 10px;
+
+            font-size: larger;
+            margin-bottom: 5px;
+
+        }
+
+        .hello-user{
+            display: flex;
+            margin-bottom: 5px;
+            font-size: 12px;
+
+        }
+
+        .ajuda{
+            color: gray;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+
+        .initial {
+            font-size: 15px;
+            color: #2D84FB;
+            margin: 0px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        .right-side{
+            display: flex;
+            margin-right: 10px  ;
+            
+        }
+
+        .bell{
+            width: 27px;
+        }
+
+        .text-middle-part{
+            display: flex;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .div-buttons{
+            display: flex;
+            flex-direction: column;
+            height: 220px;
+            justify-content: space-evenly;
+
+        }
+        .buttons{
+            height: 65px;
+            width: 388.93px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background-color: #ffff;
+            color: rgb(0, 0, 0);
+            font-size: large;
+
+        }
+
+        .new-tab{
+            border-radius: 15px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            padding: 20px 20px;
+
+        }
+        .noticia{
+            font-size: 13px;
+        }
+
+        .news-img{
+            width: 150px;
+            border-radius: 10px;
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">
+            <div>
+                <div class="header">
+                    <div class="left-side">
+                        <div></div>
+                        <div class="round-profile-picture">
+                            <p class="initial">A</p>
+                        </div>
+                        <div class="user-text">
+                            <p class="hello-user">Olá, Ana</p>
+                            <p class="ajuda">precisa de ajuda?</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box2">
+            <div class="middle-part"> 
+                <p class="text-middle-part">O que deseja fazer?</p>
+                <div class="div-buttons">
+                    <form action="/patients.html">
+                        <button class="buttons">acompanhamento</button>
+                    </form>
+                    
+                    <form action="/cadastro.html">
+                        <button class="buttons">cadastros</button>
+                    </form>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="box" id="box3">
+            <p class="text-middle-part">Novidades</p>
+            <div class="new-tab">
+             <p class="noticia">cancêr de boca é tema do <br>vanguarda comunidade; <br> assista ao programa</p>
+             <img src="/img/news-img.png" class="news-img" alt="">
+            </div>
+            
+        </div>
+        <div class="box" id="box4">4</div>
+    </div>
+</body>
+</html>

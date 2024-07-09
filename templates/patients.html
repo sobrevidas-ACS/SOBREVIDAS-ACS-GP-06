@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pacientes</title>
+</head>
+<body>
+    <h1>Lista de Pacientes</h1>
+    <table border="5">
+        <form action="/patients" method="get">
+            <label>
+                <input type="search" placeholder="Buscar pelo nome" name="busca" class="campo">
+                <button type="submit">🔍</button>
+                
+            </label>
+        </form>
+        <a href="/cadastro.html"><button>➕</button></a>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Fuma</th>
+            <th>Uso de álcool</th>
+            <th>ID</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Nome}}</td>
+            <td>{{.CPF}}</td>
+            <td>{{.Idade}}</td>
+            <td>{{.Sexo}}</td>
+            <td>{{.Fuma}}</td>
+            <td>{{.Alcool}}</td>
+            <td>{{.ID}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>

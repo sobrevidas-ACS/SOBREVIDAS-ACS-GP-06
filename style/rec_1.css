@@ -1,0 +1,148 @@
+p{
+    font-family: Poppins;
+}
+.login {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  
+.login .div {
+background-color: var(--background);
+width: 360px;
+height: 786px;
+position: relative;
+}
+
+.backButton{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30px;
+    display: inline-block;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.digite_email{
+    font-size: 15px;
+}
+
+.input{
+    width: 100%;
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 3px;
+            border-width: 1px;
+            color: (--greyscale-500);
+            border-color: p{
+    font-family: Poppins;
+}
+.login {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  
+.login .div {
+background-color: var(--background);
+width: 360px;
+height: 786px;
+position: relative;
+}
+
+.backButton{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30px;
+    display: inline-block;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.digite_email{
+    font-size: 15px;
+}
+
+.input{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3px;
+    border-width: 1px;
+    color: (--greyscale-500);
+    border-color: (--greyscale-500);
+}
+.title{
+    font-family: Poppins;
+    text-align: left;
+}
+
+.email{
+    font-family: Poppins;
+    height: 30px;
+    width: 320px;
+
+};
+}
+.title{
+    font-family: Poppins;
+    align-self: flex-start;
+    margin-left: 18px;
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+
+.email{
+    font-family: Poppins;
+    height: 40px;
+    width: 320px;
+    border-radius: 3px;
+    border-width: 1px;
+
+}
+
+.prosseguir{
+    margin-top: 100px;
+}
+
+.button{
+    font-family: Poppins;
+    width: 306px;
+    height: 52.46px;
+    border: none;
+    color: #ffffff;
+    background-color: var(--primarydodger-blue);
+    border-radius: 3px;
+}
