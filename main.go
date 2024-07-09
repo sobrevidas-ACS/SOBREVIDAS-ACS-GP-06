@@ -40,12 +40,12 @@ func main() {
 		http.ServeFile(w, r, "templates/login.html")
 	})
 
-	http.HandleFunc("/welcome.html", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/welcome", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		http.ServeFile(w, r, "templates/welcome.html")
 	})
 
-	http.HandleFunc("/cadastro.html", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/cadastro", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			cadastroHandler(w, r, dbPostgres)
 		} else {
@@ -54,13 +54,16 @@ func main() {
 		}
 	})
 
-	http.HandleFunc("/patients.html", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/patients", func(w http.ResponseWriter, r *http.Request) {
 		patientsHandler(w, r, dbPostgres)
 	})
 
 	http.HandleFunc("/login", loginHandler(db))
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
+	
 }
+
 
 func loginHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -92,7 +95,7 @@ func loginHandler(db *sql.DB) http.HandlerFunc {
 		}
 
 		if password == storedPassword {
-			http.Redirect(w, r, "/welcome.html", http.StatusFound)
+			http.Redirect(w, r, "/welcome", http.StatusFound)
 			return
 		}
 
@@ -101,7 +104,7 @@ func loginHandler(db *sql.DB) http.HandlerFunc {
 }
 
 func connectDB() (*sql.DB, error) {
-	connStr := "user=lucas dbname=login sslmode=disable password=1234"
+	connStr := "user=postgres dbname=login sslmode=disable password=1235"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
@@ -110,7 +113,7 @@ func connectDB() (*sql.DB, error) {
 }
 
 func connectDBPostgres() (*sql.DB, error) {
-	connStr := "user=lucas dbname=postgres sslmode=disable password=1234"
+	connStr := "user=postgres dbname=postgres sslmode=disable password=1235"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
@@ -162,13 +165,13 @@ func patientsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
         }
         patients = append(patients, p)
     }
-    if err = rows.Err(); err != nil {
+    /*if err = rows.Err(); err != nil {
         log.Printf("Erro após iterar as linhas: %v", err)
         http.Error(w, "Internal server error", http.StatusInternalServerError)
         return
     }
 
-    log.Printf("Pacientes encontrados: %v", patients)
+    log.Printf("Pacientes encontrados: %v", patients)*/
 
     tmpl, err := template.ParseFiles("templates/patients.html")
     if err != nil {
