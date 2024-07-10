@@ -97,12 +97,12 @@
     
 
         .header {
-        display: flex;
-        justify-content: space-between; /* Aligns children to each side and center */
-        align-items: center; /* Centers children vertically */
-        width: 100%; /* Ensures header spans the full width of its container */
-        margin: 0px 0px;
-        }
+                display: flex;
+                justify-content: space-between; /* Aligns children to each side and center */
+                align-items: center; /* Centers children vertically */
+                width: 100%; /* Ensures header spans the full width of its container */
+                margin: 0px 0px;
+                }
 
 
         .header-left-side {
@@ -111,9 +111,22 @@
         }
 
         .sobrevidas-logo{
-            margin: 0px 15px;
+            margin: 0px 0px;
             font-weight: bold;
             font-size: 27px;
+            padding: 0px 15px;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            border-radius: 30px;
+        }
+        .sobrevidas-logo:hover{
+            margin: 0px 0px;
+            font-weight: bold;
+            font-size: 27px;
+            border-radius: 30px;
+            padding: 0px 15px;
+            border-width: 1px;
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .header-middle-side {
@@ -122,6 +135,15 @@
             justify-content: center; /* Aligns content to the center */
             flex-grow: 1; /* Keeps it able to grow and take available space */
             align-items: center; /* Keeps content centered vertically */
+        }
+
+
+        .header-middle-side-options {
+            display: flex;
+            justify-content: space-between; /* Aligns children to each side and center */
+            align-items: center; /* Centers children vertically */
+            width: 300px; /* Ensures header spans the full width of its container */
+            margin: 0px 0px;
         }
 
         .header-right-side {
@@ -170,6 +192,13 @@
 
         }
 
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
 
         .initial {
             font-size: 15px;
@@ -180,6 +209,15 @@
             justify-content: center;
             
         }
+
+        
+
+        
+
+
+        
+
+    
 
         .right-side{
             display: flex;
@@ -224,12 +262,6 @@
             display: flex;
             font-size: 25px;
             font-weight: bold;
-        }
-
-        .header-middle-side-options{
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         h1{
@@ -356,16 +388,17 @@
                                 <button class="buttons" style="color: #2D84FB;">ACOMPANHAMENTO</button>
                             </form>
                             <form action="/cadastro">
-                                <button class="buttons" style="color: #2D84FB;">CADASTROS</button>
+                                <button class="buttons" style="color: #2D84FB;">CADASTRAMENTO</button>
                             </form>
                         </div>
                     </div>
+
                     <div class="header-right-side">
-                        
                         <div class="user-text">
                             <p class="hello-user">Olá, Ana</p>
                             <p class="ajuda">precisa de ajuda?</p>
                         </div>
+
                         <div class="round-profile-picture">
                             <p class="initial">A</p>
                         </div>
