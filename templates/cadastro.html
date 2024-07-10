@@ -15,14 +15,202 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #2D84FB;
         }
+
+        #box1{
+            position: fixed; /* Changed from absolute to fixed to ensure it stays at the top */
+            top: 0;
+            left: 0; /* Ensure it starts from the left edge */
+            width: 100%;
+            background-color: rgb(250, 249, 249); /* Set background color to white */
+            z-index: 1000; /* Ensure it stays on top of other content */
+            box-shadow: 0 4px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+            padding: 0px 0; /* Add some vertical padding */
+            display: flex; /* Make it a flex container */
+            justify-content: center; /* Center horizontally, if needed */
+            align-items: center; /* Center vertically */
+            height: 100px; /* Set a fixed height */
+        }
+
+            #box2{
+                width: 100vw;
+                height: 100vh; /* Set a fixed height */
+                box-sizing: border-box;
+                position: absolute;
+                top: 50px;
+                left: 0; /* Ensure it starts from the left edge */
+                width: 100%;
+                background-color: rgb(255, 255, 255); /* Set background color to white */
+                z-index: 500; /* Ensure it stays on top of other content */
+                box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+                padding: 0px 0; /* Add some vertical padding */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #2D84FB;
+            
+            }
+
+        
+            .header {
+        display: flex;
+        justify-content: space-between; /* Aligns children to each side and center */
+        align-items: center; /* Centers children vertically */
+        width: 100%; /* Ensures header spans the full width of its container */
+        margin: 0px 0px;
+        }
+
+
+        .header-left-side {
+            display: flex;
+            align-items: center; /* Optional: Aligns items in `.header-left-side` vertically */
+        }
+
+        .sobrevidas-logo{
+            margin: 0px 0px;
+            font-weight: bold;
+            font-size: 27px;
+            padding: 0px 15px;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            border-radius: 30px;
+        }
+        .sobrevidas-logo:hover{
+            margin: 0px 0px;
+            font-weight: bold;
+            font-size: 27px;
+            border-radius: 30px;
+            padding: 0px 15px;
+            border-width: 1px;
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-middle-side {
+            margin-left: 50px;
+            display: flex;
+            justify-content: center; /* Aligns content to the center */
+            flex-grow: 1; /* Keeps it able to grow and take available space */
+            align-items: center; /* Keeps content centered vertically */
+        }
+
+
+        .header-middle-side-options {
+            display: flex;
+            justify-content: space-between; /* Aligns children to each side and center */
+            align-items: center; /* Centers children vertically */
+            width: 300px; /* Ensures header spans the full width of its container */
+            margin: 0px 0px;
+        }
+
+        .header-right-side {
+            display: flex;
+            justify-content: flex-end; /* Aligns content to the right */
+            flex-grow: 1; /* Keeps it able to grow and take available space */
+            align-items: center; /* Keeps content centered vertically */
+            margin-right: 15px;
+        }
+
+        .round-profile-picture {
+            margin-left: 10px;
+            width: 70px; /* Set the width of the circle */
+            height: 70px; /* Set the height of the circle */
+            border-radius: 50%; /* This makes the square a circle */
+            display: flex; /* Enables flexbox layout */
+            justify-content: center; /* Centers the content horizontally */
+            align-items: center; /* Centers the content vertically */
+            background-color: #D3EEFE; /* Example background color, adjust as needed */
+            color: #333; /* Example text color, adjust as needed */
+            font-size: 24px; /* Adjust the font size as needed */
+        }
+
+    
+        .user-text{
+            margin-right: 20px;
+            font-size: larger;
+            margin-bottom: 5px;
+
+        }
+
+        .hello-user{
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            margin-bottom: 5px;
+            font-size: 16px;    
+            font-weight: 500;
+
+        }
+
+        .ajuda{
+            color: gray;
+            font-size: 12px;
+            margin-top: 5px;
+
+        }
+
+
+        .initial {
+            font-size: 15px;
+            color: #2D84FB;
+            margin: 0px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        .right-side{
+            display: flex;
+            margin-right: 10px  ;
+            
+        }
+
+        .buttons {
+            margin: 15px;
+            padding: 0 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: inherit;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            box-shadow: none;
+        }
+
+        .button_acomp{
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .button_acomp:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+        }
+
+    
+
+        .button_cadastro{
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 30px; 
+        }
+
+        
 
         .button-div {
             margin-top: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
     
         input[type="submit"] {
@@ -73,44 +261,237 @@
             font-weight: 500;
             font-size: 13px;
         }
+
+        .cadastrar_button {
+            opacity: 0.7; /* Low opacity for a "faded" look */
+            transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for opacity and background color */
+            background-color: #f0f0f0; /* Initial background color */
+            border: 1px solid #ccc; /* Optional: adds a border */
+            border-radius: 4px; /* Optional: rounds the corners */
+            padding: 10px 20px; /* Optional: adjusts the size */
+        }
+
+        .cpf-container {
+            display: flex; /* Usa flexbox para alinhar os itens lado a lado */
+
+            align-items: center; /* Centraliza os itens verticalmente */
+            gap: 10px; /* Adiciona um espaço entre o campo de entrada e a mensagem de erro */
+        }
+
+        
+
+        .cpf-message {
+            font-size: 13px;
+            color: red;
+            opacity: 0.8;
+            transition: 0.3s;
+            display: none; /* Inicialmente escondido */
+        }
+
+        .cpf-label-and-warning{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-principal{
+            background-color: white;
+            padding: 40px 40px;
+            border-radius: 30px;
+        }
+
+        
     </style>
 </head>
 <body>
-    <div class="login-container">
-         <h2 class="button-div">Cadastros</h2>
-    <form action="/cadastro" method="POST">
-        <label for="nome" class="labels">Nome:</label><br>
-        <input placeholder="Nome" class="text-boxes" type="text" id="nome" name="nome" required><br><br>
+    <div class="master-container">
+        <div class="container">
+            <div class="box" id="box1">
+                <div class="header">
+                    <div class="header-left-side">
+                        <a href="/welcome" style="text-decoration: none; color: inherit;">
+                            <p class="sobrevidas-logo">SOBREVIDAS ACS</p>
+                        </a>
+                    </div>
         
-        <label for="cpf" class="labels">CPF:</label><br>
-        <input placeholder="CPF" class="text-boxes" type="text" id="cpf" name="cpf" required><br><br>
-        
-        <label for="idade" class="labels">Idade:</label><br>
-        <input placeholder="Idade" class="text-boxes" type="number" id="idade" name="idade"  required><br><br>
-        
-        <label for="sexo" class="labels">Sexo:</label><br>
-        <select class="gender_selector" id="sexo" name="sexo"  required>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-        </select><br><br>
-        
-        <label for="fuma" class="labels">Fumante</label><br>
-        <input type="radio" id="fuma_sim" name="fuma" value="Sim" required> <label for="fuma_sim">Sim</label>
-        <input type="radio" id="fuma_nao" name="fuma" value="Não" required> <label for="fuma_nao">Não</label><br><br>
-
-        <label for="alcool" class="labels">Etilista (faz uso de álcool)</label><br>
-        <input type="radio" id="alcool_sim" name="alcool" value="Sim" required> <label for="alcool_sim">Sim</label>
-        <input type="radio" id="alcool_nao" name="alcool" value="Não" required> <label for="alcool_nao">Não</label><br><br>
-        
-       
-        <div class="button-div">
-            <input type="submit" value="Cadastrar">
+                    <div class="header-middle-side">
+                        <div class="header-middle-side-options">
+                            <form action="/patients">
+                                <button class="buttons button_acomp" style="color: #2D84FB;">ACOMPANHAMENTO</button>
+                            </form>
+                            <form action="/cadastro">
+                                <button class="buttons button_cadastro" style="color: #2D84FB;">CADASTROS</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="header-right-side">
+                        
+                        <div class="user-text">
+                            <p class="hello-user">Olá, Ana</p>
+                            <p class="ajuda">precisa de ajuda?</p>
+                        </div>
+                        <div class="round-profile-picture">
+                            <p class="initial">A</p>
+                        </div>
+                    </div>
+            </div>
         </div>
-            
-        </form>
-        
-    </form>
+        </div>
+        <div class="box" id="box2">
+    
+    
+           <form class="form-principal" action="/cadastro" method="POST">
+                <div class="cpf-label-and-warning">   
+                    <label for="nome" class="labels">Nome:</label><br>
+                    <div class="nome-message" style="color: red; display: none; font-size: 13px; opacity: 0.8;">Esse campo deve ser preenchido</div>
+                </div> 
+                <div class="cpf-container">
+                    <input placeholder="Nome" class="text-boxes" type="text" id="nome" name="nome" required><br><br>
+                </div>
+               <div class="cpf-label-and-warning">    
+                <label for="cpf" class="labels">CPF:</label>
+                <div class="cpf-message" style="color: red; display: none;">CPF precisa ter 11 dígitos.</div>
+               </div>
+                   
+               <div class="cpf-container">
+                    
+                    <input placeholder="CPF" class="text-boxes cpf"  type="text" id="cpf" name="cpf" required><br><br>
+                    
+               </div>
+               
+               <div class="cpf-label-and-warning">
+                    <label for="idade" class="labels">Idade:</label>
+                    <div class="idade-message" style="color: red; display: none; font-size: 13px; opacity: 0.8;">Esse campo deve ser preenchido</div>
+               </div>
+               <div class="cpf-container">
+                    <input placeholder="Idade" class="text-boxes" type="number" id="idade" name="idade"  required><br><br>
+               </div>
+               
+               
+               <label for="sexo" class="labels">Sexo:</label><br>
+               <select class="gender_selector" id="sexo" name="sexo"  required>
+                   <option value="Masculino">Masculino</option>
+                   <option value="Feminino">Feminino</option>
+               </select><br><br>
+               
+               <label for="fuma" class="labels">Fumante</label><br>
+               <input type="radio" id="fuma_sim" name="fuma" value="Sim" required> <label for="fuma_sim">Sim</label>
+               <input type="radio" id="fuma_nao" name="fuma" value="Não" required> <label for="fuma_nao">Não</label><br><br>
+       
+               <label for="alcool" class="labels">Etilista (faz uso de álcool)</label><br>
+               <input type="radio" id="alcool_sim" name="alcool" value="Sim" required> <label for="alcool_sim">Sim</label>
+               <input type="radio" id="alcool_nao" name="alcool" value="Não" required> <label for="alcool_nao">Não</label><br><br>
+               
+               <input class="cadastrar_button" type="submit" value="Cadastrar">
+    
+                   
+           </form>
+               
+           
+           
+           </div> 
+        </div>
     </div>
+    
+    
+    <script>
+        document.querySelector('.button_acomp').addEventListener('mouseover', function(){
+            document.querySelector('.button_cadastro').style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            document.querySelector('.button_cadastro').style.border = 'none';
+            document.querySelector('.button_cadastro').style.boxShadow = 'none';
+        });
+        document.querySelector('.button_acomp').addEventListener('mouseout', function(){
+            document.querySelector('.button_cadastro').style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
+            document.querySelector('.button_cadastro').style.boxShadow = '0 0 0 10px rgba(0, 0, 0, 0.05)';
+            document.querySelector('.button_acomp').style.borderRadius = '30px' ;
+            document.querySelector('.button_acomp').style.transition = 'color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out' ;
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('.text-boxes, .gender_selector');
+        const radios = document.querySelectorAll('input[type="radio"]');
+        const button = document.querySelector('.cadastrar_button'); 
+        const cpfInput = document.querySelector('.cpf');
+        const cpfMessage = document.querySelector('.cpf-message');
+        const nomeInput = document.querySelector('#nome');
+        const nomeMessage = document.querySelector('.nome-message');
+        const idadeInput = document.querySelector('#idade');
+        const idadeMessage = document.querySelector('.idade-message');
+
+        function isRadioChecked(name) {
+        return [...document.querySelectorAll(`input[name="${name}"]`)].some(radio => radio.checked);
+    }
+
+        document.querySelector('.cpf').addEventListener('input', function(e) {
+        var input = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+        var formatted = input;
+
+        // Apply formatting if the input is long enough
+        if (input.length > 9) {
+            formatted = input.substring(0, 3) + '.' + input.substring(3, 6) + '.' + input.substring(6, 9) + '-' + input.substring(9, 11);
+        } else if (input.length > 6) {
+            formatted = input.substring(0, 3) + '.' + input.substring(3, 6) + '.' + input.substring(6, 9);
+        } else if (input.length > 3) {
+            formatted = input.substring(0, 3) + '.' + input.substring(3, 6);
+        }
+
+        // Update the input field with the formatted value
+        e.target.value = formatted;
+    });
+
+        function checkFields() {
+            let allFilled = true;
+
+            // Verifica campos de texto e número
+            inputs.forEach(input => {
+                if (!input.value) allFilled = false;
+            });
+
+            // Verifica campos do tipo radio por nome
+            const radioGroups = ['fuma', 'alcool']; // Adicione mais nomes de grupos de radio conforme necessário
+            radioGroups.forEach(group => {
+                if (!isRadioChecked(group)) allFilled = false;
+            });
+
+            button.addEventListener('click', function(event) {
+                if (cpfInput.value.length !== 14) {
+                    cpfMessage.style.display = 'block'; // Mostra a mensagem de erro
+                    event.preventDefault(); // Impede o formulário de ser enviado
+                } else {
+                    cpfMessage.style.display = 'none'; // Esconde a mensagem de erro
+                    // Aqui você pode adicionar a lógica de envio do formulário, se o CPF for válido
+                }
+                if (nomeInput.value === '') {
+                    nomeMessage.style.display = 'block'; // Mostra a mensagem de erro
+                    event.preventDefault(); // Impede o formulário de ser enviado
+                } else {
+                    nomeMessage.style.display = 'none'; // Esconde a mensagem de erro
+                    // Aqui você pode adicionar a lógica de envio do formulário, se o CPF for válido
+                }
+                if (idadeInput.value === '') {
+                    idadeMessage.style.display = 'block'; // Mostra a mensagem de erro
+                    event.preventDefault(); // Impede o formulário de ser enviado
+                } else {
+                    idadeMessage.style.display = 'none'; // Esconde a mensagem de erro
+                    // Aqui você pode adicionar a lógica de envio do formulário, se o CPF for válido
+                }
+            });
+
+            // Altera a cor do botão baseado na validação
+            button.style.backgroundColor = allFilled ? '#007BFF' : ''; // Muda para verde se todos os campos 
+            button.style.opacity = allFilled ? '1' : ''; 
+        }
+
+            // Adiciona evento de 'input' para campos de texto e número
+            inputs.forEach(input => input.addEventListener('input', checkFields));
+
+            // Adiciona evento de 'change' para campos do tipo radio
+            radios.forEach(radio => radio.addEventListener('change', checkFields));
+        });
+
+
+    </script>
    
 </body>
 </html>

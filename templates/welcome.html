@@ -186,6 +186,31 @@
             margin-right: 10px  ;
             
         }
+
+        .buttons {
+            margin: 15px;
+            padding: 0 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: inherit;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            box-shadow: none;
+        }
+
+        .buttons:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+        }
+
         
         .middle-div {
             width: 100%; /* Ensures it spans the full width of the viewport */
@@ -211,31 +236,6 @@
             font-size: 50px;
             font-weight: 400;
             margin-top: 60px;
-        }
-
-
-        .buttons {
-            margin: 15px;
-            padding: 0 10px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            font-size: 20px;
-            color: inherit;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            box-shadow: none;
-        }
-
-        .buttons:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
-            border-radius: 30px;
         }
 
     
@@ -325,6 +325,19 @@
             align-items: start;
 
         }
+
+        @media (max-width: 768px) {
+            .introductory-text-2 p {
+                font-size: 4vw; /* Increases font size for better readability on smaller screens */
+            }
+        }
+
+    /* Further adjustments for very small screens */
+    @media (max-width: 480px) {
+        .introductory-text-2 p {
+            font-size: 5vw; /* Further increases font size for very small screens */
+        }
+}
 
         
     </style>
