@@ -104,7 +104,7 @@ func loginHandler(db *sql.DB) http.HandlerFunc {
 }
 
 func connectDB() (*sql.DB, error) {
-	connStr := "user=postgres dbname=login sslmode=disable password=1235"
+	connStr := "user=lucas dbname=login sslmode=disable password=1234"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
@@ -113,7 +113,7 @@ func connectDB() (*sql.DB, error) {
 }
 
 func connectDBPostgres() (*sql.DB, error) {
-	connStr := "user=postgres dbname=postgres sslmode=disable password=1235"
+	connStr := "user=lucas dbname=postgres sslmode=disable password=1234"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
@@ -215,7 +215,7 @@ func cadastroHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
     }
     log.Printf("Novo paciente registrado com ID: %d", idInserido)
 
-    http.Redirect(w, r, "/patients.html", http.StatusSeeOther)
+    http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }
 
 
