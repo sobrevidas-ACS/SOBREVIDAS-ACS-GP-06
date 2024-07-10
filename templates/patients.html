@@ -243,6 +243,38 @@
         text-align: center; /* Centraliza o texto horizontalmente */
         vertical-align: middle; /* Centraliza o texto verticalmente */
         padding: 15px;
+        }
+
+        .paciente-risco {
+            color: red;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            min-width: 120px; /* Garante uma largura mínima para o tooltip */
+
+            color: rgb(0, 0, 0);
+            background-color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%; /* Ajusta para alinhar verticalmente com o meio da célula */
+            left: -100px; /* Posiciona à direita da célula */
+            margin-left: 10px; /* Espaço entre a célula e o tooltip */
+            white-space: nowrap;
+            padding: 3px;
+            border: solid 1px gray;
+            }
+
+        .tooltip:hover .tooltiptext {
+        visibility: visible;
     }
 
         
@@ -284,7 +316,7 @@
     <div id="box2">
          
          <div class="table-div">
-            <table border="0">
+            <table border="0" id="pacientesTabela">
                 <div class="search-bar">
                     <form  action="/patients"  method="get">
                         <label>
@@ -319,6 +351,42 @@
       
     </div>
     <script>
+                const linhas = document.querySelectorAll('#pacientesTabela tr');
+
+                linhas.forEach(function(linha) {
+                    // Supondo que a idade está na terceira célula, fumante na quinta e alcoolista na sexta
+                    const idade = parseInt(linha.cells[2]?.textContent);
+                    const fumante = linha.cells[4]?.textContent.toLowerCase() === 'sim';
+                    const alcoolista = linha.cells[5]?.textContent.toLowerCase() === 'sim';
+
+                    if (idade >= 40 && fumante && alcoolista) {
+            linha.classList.add('paciente-risco');
+
+            Array.from(linha.cells).forEach(cell => {
+                const tooltipWrapper = document.createElement('div');
+                tooltipWrapper.className = 'tooltip';
+
+                const tooltipSpan = document.createElement('span');
+                tooltipSpan.textContent = ' ❗️pessoa no grupo de risco ';
+                tooltipSpan.className = 'tooltiptext';
+
+                // Move o conteúdo atual da célula para o tooltipWrapper
+                while (cell.firstChild) {
+                    tooltipWrapper.appendChild(cell.firstChild);
+                }
+
+                // Adiciona o tooltipSpan ao tooltipWrapper
+                tooltipWrapper.appendChild(tooltipSpan);
+
+                // Adiciona o tooltipWrapper de volta à célula
+                cell.appendChild(tooltipWrapper);
+            });
+
+            
+        }
+
+                });
+
         document.querySelector('.button_cadastro').addEventListener('mouseover', function(){
             document.querySelector('.button_acomp').style.backgroundColor = 'rgba(0, 0, 0, 0)';
             document.querySelector('.button_acomp').style.border = 'none';
@@ -331,7 +399,6 @@
             document.querySelector('.button_cadastro').style.transition = 'color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out' ;
         });
 
-       
 
 
         

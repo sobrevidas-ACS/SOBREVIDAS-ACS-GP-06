@@ -215,6 +215,7 @@ func cadastroHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
     }
     log.Printf("Novo paciente registrado com ID: %d", idInserido)
 
+
     http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }
 
