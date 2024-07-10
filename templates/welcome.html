@@ -10,24 +10,34 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins';
+                font-family: 'Poppins';
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: white;
+            }
+
+        .container{
+
+            margin-top: 0px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            border: none;
             height: 100vh;
-            
+            width: 400px;
+            flex-direction: column;
+            align-items: start;
+            margin-top: 200px;
 
         }
 
-        .container{
-            margin-top: 150px;
+        .middle-div{
             display: flex;
-            border: none;
-            height: 765px;
-            width: 349.02px;
             flex-direction: column;
             justify-content: space-between;
-
+            height: 100%;
+            margin-top: 20px;
         }
 
         .box{ 
@@ -35,62 +45,109 @@
             text-align: center;
         }
         #box1{
-            align-self: flex-start;
-        }
+            position: fixed; /* Changed from absolute to fixed to ensure it stays at the top */
+            top: 0;
+            left: 0; /* Ensure it starts from the left edge */
+            width: 100%;
+            background-color: rgb(250, 249, 249); /* Set background color to white */
+            z-index: 1000; /* Ensure it stays on top of other content */
+            box-shadow: 0 4px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+            padding: 0px 0; /* Add some vertical padding */
+            display: flex; /* Make it a flex container */
+            justify-content: center; /* Center horizontally, if needed */
+            align-items: center; /* Center vertically */
+            height: 100px; /* Set a fixed height */
+            }
         #box2{
-            align-self: center;
+            width: 100vw;
+            height: 420px; /* Set a fixed height */
+            box-sizing: border-box;
+            position: absolute;
+            top: 100px;
+            left: 0; /* Ensure it starts from the left edge */
+            width: 100%;
+            background-color: rgb(255, 255, 255); /* Set background color to white */
+            z-index: 500; /* Ensure it stays on top of other content */
+            box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+            
+            padding: 0px 0; /* Add some vertical padding */
+        
         }
         #box3{
-            align-self: center;
+            width: 100vw;
+            height: 540px; /* Set a fixed height */
+            left: 0;
+            box-sizing: border-box;
+            position: absolute;
+            top: 500px;
+            background-color: #D3EEFE; /* Set background color to white */
+            box-shadow: 0 8px 4px rgba(0,0,0,0.1);
         }
         #box4{
-            background-color: rgb(0, 229, 255);
+            background-color: #2D84FB;
             align-self: center;
-        }
-
-        .top-header{
+            width: 100vw;
+            height: 70px; /* Set a fixed height */
+            box-sizing: border-box;
             position: absolute;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+            top: 1000px;
+            margin-top: 2200px;
         }
 
-        .header{
-            margin-top: 30px;
-            display: flex;
-            flex-direction:row ;
-            justify-content: space-between;
-            width: 349px;
-            
+    
+
+        .header {
+        display: flex;
+        justify-content: space-between; /* Aligns children to each side and center */
+        align-items: center; /* Centers children vertically */
+        width: 100%; /* Ensures header spans the full width of its container */
+        margin: 0px 0px;
         }
 
-        .header-max{
-            display: flex;
-            flex-direction: column;
 
-            align-items: start;
+        .header-left-side {
+            display: flex;
+            align-items: center; /* Optional: Aligns items in `.header-left-side` vertically */
         }
 
-        .left-side{
+        .sobrevidas-logo{
+            margin: 0px 15px;
+            font-weight: bold;
+            font-size: 27px;
+        }
+
+        .header-middle-side {
+            margin-left: 50px;
+            display: flex;
+            justify-content: center; /* Aligns content to the center */
+            flex-grow: 1; /* Keeps it able to grow and take available space */
+            align-items: center; /* Keeps content centered vertically */
+        }
+
+        .header-right-side {
+            display: flex;
+            justify-content: flex-end; /* Aligns content to the right */
+            flex-grow: 1; /* Keeps it able to grow and take available space */
+            align-items: center; /* Keeps content centered vertically */
+            margin-right: 15px;
+        }
+
+        .round-profile-picture {
             margin-left: 10px;
-            display: flex;
-            flex-direction: row;
-
+            width: 70px; /* Set the width of the circle */
+            height: 70px; /* Set the height of the circle */
+            border-radius: 50%; /* This makes the square a circle */
+            display: flex; /* Enables flexbox layout */
+            justify-content: center; /* Centers the content horizontally */
+            align-items: center; /* Centers the content vertically */
+            background-color: #D3EEFE; /* Example background color, adjust as needed */
+            color: #333; /* Example text color, adjust as needed */
+            font-size: 24px; /* Adjust the font size as needed */
         }
 
-        .round-profile-picture{
-            background-color: #D3EEFE;
-            border-radius: 150px;
-            display: flex;
-            padding: 0px 27px;
-
-        }
-
+    
         .user-text{
-            margin-left: 10px;
-
+            margin-right: 20px;
             font-size: larger;
             margin-bottom: 5px;
 
@@ -98,15 +155,19 @@
 
         .hello-user{
             display: flex;
+            flex-direction: row;
+            justify-content: end;
             margin-bottom: 5px;
-            font-size: 12px;
+            font-size: 16px;    
+            font-weight: 500;
 
         }
 
         .ajuda{
             color: gray;
-            font-size: 10px;
+            font-size: 12px;
             margin-top: 5px;
+
         }
 
 
@@ -125,7 +186,11 @@
             margin-right: 10px  ;
             
         }
-
+        
+        .middle-div {
+            width: 100%; /* Ensures it spans the full width of the viewport */
+            background-color: #808080; /* Sets the background color to gray */
+        }
         .bell{
             width: 27px;
         }
@@ -136,88 +201,233 @@
             font-weight: bold;
         }
 
-        .div-buttons{
+        .header-middle-side-options{
             display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1{
+            font-size: 50px;
+            font-weight: 400;
+            margin-top: 60px;
+        }
+
+
+        .buttons {
+            margin: 15px;
+            padding: 0 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: inherit;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            box-shadow: none;
+        }
+
+        .buttons:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+        }
+
+    
+
+        .novidades{
+            font-size: 40px;
+            font-weight: 500;
+            color: #2D84FB;
+        }
+
+
+        .explanation-box{
+            display: flex; /* Make it a flex container */
+            justify-content: center; /* Center horizontally, if needed */
+            align-items: center; /* Center vertically */
             flex-direction: column;
-            height: 220px;
+            margin-bottom: 30px;
+        }
+
+        .introductory-text{
+            font-size: 20px;
+            font-weight: 300;
+            margin: 0px 50px;
+        }
+
+        .introductory-text-2{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 300;
+            margin: 0px 50px;
+            text-align: left;
             justify-content: space-evenly;
 
         }
-        .buttons{
-            height: 65px;
-            width: 299.02px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            background-color: #ffff;
-            color: rgb(0, 0, 0);
-            font-size: large;
 
+        .news-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .new-tab{
-            width: 299.02px;
-            border-radius: 15px;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            padding: 5px 10px;
+            margin: 50px;
+            height: 250px;
+            width: 300px;
             display: flex;
-            padding: 10px 0px;
-
-        }
-        .noticia{
-            font-size: 10px;
-        }
-
-        .news-img{
-            width: 130px;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
             border-radius: 10px;
-            margin-left: 25px;
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for transform and opacity */
         }
+
+        .new-tab:hover {
+            transform: scale(1.05); /* Slightly larger */
+            opacity: 0.8; /* Change opacity */
+            cursor: pointer;
+        }
+
+        .noticia{
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .noticia_1{
+            font-size: 15px;
+            font-weight: 500;
+            color: #797979;
+        }
+        
+        .news-img{
+            width: 200px;
+            border-radius: 5px;
+            margin: 0px;
+        }
+        
+        .news-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+
+        }
+
+        
     </style>
 </head>
 <body>
     <div class="container">
         <div class="box" id="box1">
-            <div>
                 <div class="header">
-                    <div class="left-side">
-                        <div></div>
-                        <div class="round-profile-picture">
-                            <p class="initial">A</p>
+                    <div class="header-left-side">
+                        <p class="sobrevidas-logo">SOBREVIDAS ACS</p>
+                    </div>
+
+                    <div class="header-middle-side">
+                        <div class="header-middle-side-options">
+                            <form action="/patients">
+                                <button class="buttons" style="color: #2D84FB;">ACOMPANHAMENTO</button>
+                            </form>
+                            <form action="/cadastro">
+                                <button class="buttons" style="color: #2D84FB;">CADASTROS</button>
+                            </form>
                         </div>
+                    </div>
+                    <div class="header-right-side">
+                        
                         <div class="user-text">
                             <p class="hello-user">Olá, Ana</p>
                             <p class="ajuda">precisa de ajuda?</p>
                         </div>
+                        <div class="round-profile-picture">
+                            <p class="initial">A</p>
+                        </div>
                     </div>
-                    
-                </div>
             </div>
         </div>
-        <div class="box" id="box2">
-            <div class="middle-part"> 
-                <p class="text-middle-part">O que deseja fazer?</p>
-                <div class="div-buttons">
-                    <form action="/patients">
-                        <button class="buttons">acompanhamento</button>
-                    </form>
-                    
-                    <form action="/cadastro">
-                        <button class="buttons">cadastros</button>
-                    </form>
-                    
+            <div class="box" id="box2">
+                <div class="explanation-box">
+                    <h1> Seja bem vindo ao <strong>SOBREVIDAS ACS</strong>!</h1>    
+                    <p class="introductory-text"> Essa plataforma surgiu no intuito de auxiliar <strong>você</strong>, ACS, a realizar ações preventivas e conscientizdoras, no que diz respeito ao combate ao cancêr de boca. 
+                    </p>  
+                </div>
+                <p style="font-size: 30px;"><strong>Aqui, você poderá: </strong></p>
+                <div class="introductory-text-2">
+                
+                    <p > 
+                        &#8226 <u>realizar cadastros</u>  
+                    </p>  
+                    <p >
+                        &#8226 <u>acompanhar pacientes </u>
+                    </p>
+                    <p >
+                        &#8226 <u>visualizar novidades</u> 
+                    </p>
                 </div>
                 
+                
+               
+
+        
             </div>
-        </div>
-        <div class="box" id="box3">
-            <p class="text-middle-part">Novidades</p>
-            <div class="new-tab" style="width: 299.02px;">
-             <p class="noticia">cancêr de boca é tema do <br>vanguarda comunidade; <br> assista ao programa</p>
-             <img src="/img/news-img.png" class="news-img" alt="">
+            <div class="box" id="box3">
+                <p class="novidades">Novidades e Notícias</p>
+                <div class="news-row">
+                    
+                    <div class="new-tab">
+                        <div class="news-text">
+                            <p class="noticia_1" style="margin: 0px;">Brigada Militar</p>
+                            <p class="noticia">Maio Vermelho é o mês que marca a luta contra o câncer de boca</p>
+                        </div>
+                        
+                        <img src="/img/news_1-img.jpg" class="news-img" alt="">
+                    </div>
+                    <div class="new-tab">
+                        <div class="news-text">
+                        <p class="noticia_1" style="margin: 0px;">CNN BRASIL</p>
+                        <p class="noticia">Cientistas querem criar pirulito para detectar câncer de boca
+                        </p>
+                        </div>
+                        
+                        <img src="/img/news_2-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                    </div>
+                    <div class="new-tab">
+                        <div class="news-text">
+                            <p class="noticia_1" style="margin: 0px;">Vanguarda Comunidade</p>
+                            <p class="noticia">cancêr de boca é tema do vanguarda comunidade</p>
+                        </div>
+                    <img src="/img/news_3-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                    </div>
+
+                </div>
+               
+                
             </div>
-            
-        </div>
-        <div class="box" id="box4">4</div>
+            <div class="box" id="box4" style="
+            color: white;
+            font-size: medium;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+            margin-top: 30px;
+            "><p style="margin-top: 12px;"> projeto-integrador-es <br> grupo-06 - 2024</p></div>
+        
+      
     </div>
 </body>
 </html>
