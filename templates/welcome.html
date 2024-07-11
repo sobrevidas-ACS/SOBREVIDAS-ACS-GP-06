@@ -311,12 +311,16 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            white-space: nowrap; 
         }
 
         .new-tab{
             background-color: white;
             padding: 5px 10px;
-            margin: 50px;
+            flex: 0 0 auto; /* Do not grow, do not shrink, and base width on content */
+            margin-right: 20px; 
+
             height: 250px;
             width: 300px;
             display: flex;
@@ -334,11 +338,16 @@
         }
 
         .noticia{
+            text-decoration: none;
             font-size: 15px;
             font-weight: 500;
+            color: black;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .noticia_1{
+            text-decoration: none;
             font-size: 15px;
             font-weight: 500;
             color: #797979;
@@ -355,7 +364,14 @@
             flex-direction: column;
             justify-content: start;
             align-items: start;
+            width: 100%; /* Adjust based on your layout needs */
+            max-width: 600px; /* Or any other max-width that fits your design */
+            padding: 20px; 
 
+        }
+
+        .news-row::-webkit-scrollbar {
+            display: none; /* For WebKit browsers */
         }
 
         @media (max-width: 768px) {
@@ -433,31 +449,57 @@
             <div class="box" id="box3">
                 <p class="novidades">Novidades e Notícias</p>
                 <div class="news-row">
+                    <a href="https://www.brigadamilitar.rs.gov.br/mes-de-luta-contra-o-cancer-de-boca" style="text-decoration: none;" >
+                        <div class="new-tab">
+                            <div class="news-text">
+                                <p class="noticia_1" style="margin: 0px;">Brigada Militar</p>
+                                <p class="noticia">Maio Vermelho é o mês que marca a <br> luta contra o câncer de boca</p>
+                            </div>
+                            
+                            <img src="/img/news_1-img.jpg" class="news-img" alt="">
+                        </div>
+                    </a>
+                    <a href="https://www.cnnbrasil.com.br/saude/cientistas-querem-criar-pirulito-para-detectar-cancer-de-boca/" style="text-decoration: none;">
+                        <div class="new-tab">
+                            <div class="news-text">
+                            <p class="noticia_1" style="margin: 0px;">CNN BRASIL</p>
+                            <p class="noticia">Cientistas querem criar pirulito para <br> detectar câncer de boca
+                            </p>
+                            </div>
+                            
+                            <img src="/img/news_2-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                        </div>
+                    </a>
+                    <a href="https://redeglobo.globo.com/sp/tvvanguarda/noticia/cancer-de-boca-e-tema-do-vanguarda-comunidade-assista-ao-programa.ghtml" style="text-decoration: none;">
+                        <div class="new-tab">
+                            <div class="news-text">
+                                <p class="noticia_1" style="margin: 0px;">Vanguarda Comunidade</p>
+                                <p class="noticia">Cancêr de boca é tema do  vanguarda <br> comunidade</p>
+                            </div>
+                        <img src="/img/news_3-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                        </div>
+                    </a>
+                    <a href="https://www.terra.com.br/vida-e-estilo/saude/pirulito-consegue-diagnosticar-cancer-de-boca-exame-pode-ser-feito-em-10-minutos,30e68231bb8d1810cf9ee462e46b63a3996j9e27.html" style="text-decoration: none;">
+                        <div class="new-tab">
+                            <div class="news-text" style="padding: 0;">
+                            <p class="noticia_1" style="margin: 0px;">CNN BRASIL</p>
+                            <p class="noticia">Pirulito consegue diagnosticar  câncer <br> de boca;  exame pode ser  feito <br> em 10 minutos
+                            </p>
+                            </div>
+                            
+                            <img src="/img/news_4-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                        </div>
+                    </a>
+                    <a href="https://gauchazh.clicrbs.com.br/saude/noticia/2023/10/cancer-de-boca-conheca-os-sintomas-e-fatores-de-risco-clodkwb9l005f016r6zfynhov.html" style="text-decoration: none;">
+                        <div class="new-tab">
+                            <div class="news-text">
+                                <p class="noticia_1" style="margin: 0px;">zero hora</p>
+                                <p class="noticia">Câncer de boca: conheça os sintomas  <br> e fatores de risco</p>
+                            </div>
+                        <img src="/img/news_5.jpg" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
+                        </div>
+                    </a>
                     
-                    <div class="new-tab">
-                        <div class="news-text">
-                            <p class="noticia_1" style="margin: 0px;">Brigada Militar</p>
-                            <p class="noticia">Maio Vermelho é o mês que marca a luta contra o câncer de boca</p>
-                        </div>
-                        
-                        <img src="/img/news_1-img.jpg" class="news-img" alt="">
-                    </div>
-                    <div class="new-tab">
-                        <div class="news-text">
-                        <p class="noticia_1" style="margin: 0px;">CNN BRASIL</p>
-                        <p class="noticia">Cientistas querem criar pirulito para detectar câncer de boca
-                        </p>
-                        </div>
-                        
-                        <img src="/img/news_2-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
-                    </div>
-                    <div class="new-tab">
-                        <div class="news-text">
-                            <p class="noticia_1" style="margin: 0px;">Vanguarda Comunidade</p>
-                            <p class="noticia">cancêr de boca é tema do vanguarda comunidade</p>
-                        </div>
-                    <img src="/img/news_3-img.png" class="news-img" alt="" style="height: 112.5px; object-fit: cover;">
-                    </div>
 
                 </div>
                
@@ -475,5 +517,7 @@
         
       
     </div>
+
+    
 </body>
 </html>

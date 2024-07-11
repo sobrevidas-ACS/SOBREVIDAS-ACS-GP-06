@@ -58,6 +58,10 @@ func main() {
 		patientsHandler(w, r, dbPostgres)
 	})
 
+	http.HandleFunc("/delete-patient", func(w http.ResponseWriter, r *http.Request) {
+		deletePatientHandler(w, r, dbPostgres)
+	})
+
 	http.HandleFunc("/login", loginHandler(db))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -231,33 +235,20 @@ func Registrar(db *sql.DB, p Person) (int, error) {
 }
 
 func deletePatientHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-    if r.Method != http.MethodPost {
-        http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
-        return
-    }
+    // Extract patient ID from request
+    patientID := r.URL.Query().Get("id")
 
-    // Parse form data
-    if err := r.ParseForm(); err != nil {
-        log.Printf("Error parsing form: %v", err)
-        http.Error(w, "Error processing request", http.StatusBadRequest)
-        return
-    }
+    // SQL statement to delete a patient
+    stmt := `DELETE FROM patients WHERE id = $1;`
 
-    // Get patient ID from form
-    id := r.FormValue("id")
-    if id == "" {
-        http.Error(w, "Missing patient ID", http.StatusBadRequest)
-        return
-    }
-
-    // Delete patient from database
-    _, err := db.Exec("DELETE FROM pacientes WHERE id = $1", id)
+    // Execute the SQL statement
+    _, err := db.Exec(stmt, patientID)
     if err != nil {
-        log.Printf("Error deleting patient: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
+        // Handle error
+        http.Error(w, "Failed to delete patient", http.StatusInternalServerError)
         return
     }
 
-    // Redirect back to patients list
+    // Redirect or send a response indicating success
     http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }
