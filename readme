@@ -1,0 +1,31 @@
+LINK PARA VIDEO DO PITCH:
+
+CONFIGURAÇÃO PARA IMPLANTAÇÃO DO SOFTWARE:
+
+O software que implementamos funciona utilizando postgres.
+
+criamos dois bancos de dados distintos no postgres, um para a função de login do usuário, e o outro para manipular os dados dos individuos cadastrados
+
+* banco de dados 1:
+
+nome do db: login
+nome da table (1): login
+nome das columns (3): id, usuario, senha
+
+* banco de dados 2:
+
+nome do db: postgres
+nome da table (1): pacientes
+nome das columns (7): id, nome, cpf, idade, sexo, fuma, alcool
+
+
+Além disso, nas linhas 110/126 do arquivo main.go, constam duas funções: connectDB e connectDBPostgres, é necessário alterar o parametro user e o parametro password de cada uma delas, a fim de que o programa funcione em outro banco de dados local.
+
+Ademais, é válido destacar que o CSS foi desenvolvido em um display com aspect ratio 16:9, e não foram utilizados mecanismos para adequar o design para outros dispositivos, uma vez que o tempo foi insuficiente para adquirir tal conhecimento. Portanto, recomenda-se rodar o site em um display com a proporção citada, a fim de ter a experiência que esperamos com a utilização do programa.
+
+Após rodar o arquivo main.go, o site fica hospedado em localhost:8080
+
+O único usuário e senha cadastrado por padrão é:
+
+username: ana
+senha: 123

@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	// "fmt"
+
 	"html/template"
 	"log"
 	"net/http"
@@ -169,13 +169,7 @@ func patientsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
         }
         patients = append(patients, p)
     }
-    /*if err = rows.Err(); err != nil {
-        log.Printf("Erro após iterar as linhas: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
-        return
-    }
-
-    log.Printf("Pacientes encontrados: %v", patients)*/
+    
 
     tmpl, err := template.ParseFiles("templates/patients.html")
     if err != nil {
@@ -235,20 +229,19 @@ func Registrar(db *sql.DB, p Person) (int, error) {
 }
 
 func deletePatientHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-    // Extract patient ID from request
+
     patientID := r.URL.Query().Get("id")
 
-    // SQL statement to delete a patient
+
     stmt := `DELETE FROM patients WHERE id = $1;`
 
-    // Execute the SQL statement
+    
     _, err := db.Exec(stmt, patientID)
-    if err != nil {
-        // Handle error
-        http.Error(w, "Failed to delete patient", http.StatusInternalServerError)
-        return
-    }
+	if err != nil {
+		log.Printf("Error deleting patient: %v", err) // Log the error for debugging
+		http.Error(w, "Failed to delete patient", http.StatusInternalServerError)
+		return
+	}
 
-    // Redirect or send a response indicating success
     http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }
