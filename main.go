@@ -229,3 +229,35 @@ func Registrar(db *sql.DB, p Person) (int, error) {
 	}
 	return id, nil
 }
+
+func deletePatientHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+    if r.Method != http.MethodPost {
+        http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+        return
+    }
+
+    // Parse form data
+    if err := r.ParseForm(); err != nil {
+        log.Printf("Error parsing form: %v", err)
+        http.Error(w, "Error processing request", http.StatusBadRequest)
+        return
+    }
+
+    // Get patient ID from form
+    id := r.FormValue("id")
+    if id == "" {
+        http.Error(w, "Missing patient ID", http.StatusBadRequest)
+        return
+    }
+
+    // Delete patient from database
+    _, err := db.Exec("DELETE FROM pacientes WHERE id = $1", id)
+    if err != nil {
+        log.Printf("Error deleting patient: %v", err)
+        http.Error(w, "Internal server error", http.StatusInternalServerError)
+        return
+    }
+
+    // Redirect back to patients list
+    http.Redirect(w, r, "/patients", http.StatusSeeOther)
+}
