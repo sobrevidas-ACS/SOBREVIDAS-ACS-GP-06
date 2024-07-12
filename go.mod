@@ -1,4 +1,4 @@
-module teste
+module sobrevidas-acs
 
 go 1.22.4
 
