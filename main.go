@@ -1,6 +1,5 @@
 package main
 
-//Teste
 import (
 	"database/sql"
 
@@ -18,8 +17,6 @@ func main() {
 		log.Fatal(err)
 	}
 	defer db.Close()
-
-	
 
 	dbPostgres, err := connectDBPostgres()
 	if err != nil {
@@ -59,16 +56,11 @@ func main() {
 		patientsHandler(w, r, dbPostgres)
 	})
 
-	http.HandleFunc("/delete-patient", func(w http.ResponseWriter, r *http.Request) {
-		deletePatientHandler(w, r, dbPostgres)
-	})
-
 	http.HandleFunc("/login", loginHandler(db))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
-	
-}
 
+}
 
 func loginHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -137,88 +129,89 @@ type Person struct {
 }
 
 func patientsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-    busca := r.URL.Query().Get("busca")
+	busca := r.URL.Query().Get("busca")
+	patientId := r.URL.Query().Get("patientId")
 
-    var rows *sql.Rows
-    var err error
+	var rows *sql.Rows
+	var err error
 
-    if busca != "" {
-        query := `
+
+	if patientId != "" {
+		rows, err = db.Query("DELETE FROM pacientes WHERE id = $1", patientId)
+	}
+
+	if busca != "" {
+		query := `
             SELECT * FROM pacientes
             WHERE nome ILIKE '%' || $1 || '%'
             ORDER by nome
         `
-        rows, err = db.Query(query, busca)
-    } else {
-        rows, err = db.Query("SELECT * FROM pacientes ORDER by nome")
-    }
+		rows, err = db.Query(query, busca)
+	} else {
+		rows, err = db.Query("SELECT * FROM pacientes ORDER by nome")
+	}
 
-    if err != nil {
-        log.Printf("Erro ao consultar pacientes: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
-        return
-    }
-    defer rows.Close()
+	if err != nil {
+		log.Printf("Erro ao consultar pacientes: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
 
-    var patients []Person
+	var patients []Person
 
-    for rows.Next() {
-        var p Person
-        if err := rows.Scan(&p.ID, &p.Nome, &p.CPF, &p.Idade, &p.Sexo, &p.Fuma, &p.Alcool); err != nil {
-            log.Printf("Erro ao escanear paciente: %v", err)
-            continue
-        }
-        patients = append(patients, p)
-    }
-    
+	for rows.Next() {
+		var p Person
+		if err := rows.Scan(&p.ID, &p.Nome, &p.CPF, &p.Idade, &p.Sexo, &p.Fuma, &p.Alcool); err != nil {
+			log.Printf("Erro ao escanear paciente: %v", err)
+			continue
+		}
+		patients = append(patients, p)
+	}
 
-    tmpl, err := template.ParseFiles("templates/patients.html")
-    if err != nil {
-        log.Printf("Erro ao carregar template HTML: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
-        return
-    }
+	tmpl, err := template.ParseFiles("templates/patients.html")
+	if err != nil {
+		log.Printf("Erro ao carregar template HTML: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
 
-    if err := tmpl.Execute(w, patients); err != nil {
-        log.Printf("Erro ao executar template HTML: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
-    }
+	if err := tmpl.Execute(w, patients); err != nil {
+		log.Printf("Erro ao executar template HTML: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+	}
 }
-
 
 func cadastroHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-    if r.Method != http.MethodPost {
-        http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
-        return
-    }
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
 
-    nome := r.FormValue("nome")
-    cpf := r.FormValue("cpf")
-    idade, err := strconv.Atoi(r.FormValue("idade"))
-    if err != nil {
-        http.Error(w, "Idade inválida", http.StatusBadRequest)
-        return
-    }
-    sexo := r.FormValue("sexo")
-    fuma := r.FormValue("fuma")
-    alcool := r.FormValue("alcool")
+	nome := r.FormValue("nome")
+	cpf := r.FormValue("cpf")
+	idade, err := strconv.Atoi(r.FormValue("idade"))
+	if err != nil {
+		http.Error(w, "Idade inválida", http.StatusBadRequest)
+		return
+	}
+	sexo := r.FormValue("sexo")
+	fuma := r.FormValue("fuma")
+	alcool := r.FormValue("alcool")
 
-    newPerson := Person{Nome: nome, CPF: cpf, Idade: idade, Sexo: sexo, Fuma: fuma, Alcool: alcool}
+	newPerson := Person{Nome: nome, CPF: cpf, Idade: idade, Sexo: sexo, Fuma: fuma, Alcool: alcool}
 
-    log.Printf("Registrando nova pessoa: %+v", newPerson)
-    idInserido, err := Registrar(db, newPerson)
-    if err != nil {
-        log.Printf("Erro ao registrar o novo paciente: %v", err)
-        http.Error(w, "Internal server error", http.StatusInternalServerError)
-        return
-    }
-    log.Printf("Novo paciente registrado com ID: %d", idInserido)
+	log.Printf("Registrando nova pessoa: %+v", newPerson)
+	idInserido, err := Registrar(db, newPerson)
+	if err != nil {
+		log.Printf("Erro ao registrar o novo paciente: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+	log.Printf("Novo paciente registrado com ID: %d", idInserido)
 
-
-    http.Redirect(w, r, "/patients", http.StatusSeeOther)
+	http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }
-
-
 
 func Registrar(db *sql.DB, p Person) (int, error) {
 	var id int
@@ -227,22 +220,4 @@ func Registrar(db *sql.DB, p Person) (int, error) {
 		return 0, err
 	}
 	return id, nil
-}
-
-func deletePatientHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
-
-    patientID := r.URL.Query().Get("id")
-
-
-    stmt := `DELETE FROM patients WHERE id = $1;`
-
-    
-    _, err := db.Exec(stmt, patientID)
-	if err != nil {
-		log.Printf("Error deleting patient: %v", err) // Log the error for debugging
-		http.Error(w, "Failed to delete patient", http.StatusInternalServerError)
-		return
-	}
-
-    http.Redirect(w, r, "/patients", http.StatusSeeOther)
 }

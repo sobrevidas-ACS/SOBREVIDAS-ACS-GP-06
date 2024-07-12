@@ -239,6 +239,15 @@
             background-color: white;
         }
 
+        .delete-button {
+            padding: 4px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+
         th, td {
         text-align: center; /* Centraliza o texto horizontalmente */
         vertical-align: middle; /* Centraliza o texto verticalmente */
@@ -345,9 +354,9 @@
                 <td>{{.Alcool}}</td>
                 <td>{{.ID}}</td>
                 <td>
-                    <form action="/delete-patient" method="post">
+                    <form action="/patients" method="get">
                         <input type="hidden" name="patientId" value="{{.ID}}">
-                        <button type="submit" class="delete-button">Delete</button>
+                        <button type="submit" class="delete-button">❌</button>
                     </form>
                 </td>
             </tr>
@@ -404,16 +413,6 @@
             document.querySelector('.button_cadastro').style.borderRadius = '30px' ;
             document.querySelector('.button_cadastro').style.transition = 'color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out' ;
         });
-
-
-
-        
-
-           
-
-           
-        
-
 
     </script>
    
