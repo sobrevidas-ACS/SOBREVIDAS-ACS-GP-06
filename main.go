@@ -137,7 +137,7 @@ func patientsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 
 	if patientId != "" {
-		rows, err = db.Query("DELETE FROM pacientes WHERE id = $1", patientId)
+		db.Query("DELETE FROM pacientes WHERE id = $1", patientId)
 	}
 
 	if busca != "" {
